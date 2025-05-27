@@ -82,23 +82,41 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: ''
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    }, 3000);
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            service: '',
+            message: ''
+          });
+        }, 3000);
+      } else {
+        // Handle error
+        alert(result.error || 'שגיאה בשליחת ההודעה');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('שגיאה בשליחת ההודעה. אנא נסה שוב מאוחר יותר.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

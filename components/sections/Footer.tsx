@@ -1,7 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { FaShieldAlt, FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaWhatsapp, FaHeart } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaShieldAlt, FaPhone, FaEnvelope, FaMapMarkerAlt, FaHeart } from 'react-icons/fa';
 
 const Footer = () => {
   const quickLinks = [
@@ -17,13 +18,16 @@ const Footer = () => {
     { name: 'ביטוח אלמנטרי', index: 2 }
   ];
 
-  const socialLinks = [
-    { icon: FaFacebook, href: '#', color: 'hover:text-blue-500' },
-    { icon: FaInstagram, href: '#', color: 'hover:text-pink-500' },
-    { icon: FaLinkedin, href: '#', color: 'hover:text-blue-600' },
-    { icon: FaTwitter, href: '#', color: 'hover:text-blue-400' },
-    { icon: FaWhatsapp, href: 'https://wa.me/972522998893', color: 'hover:text-green-500' },
-  ];
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -98,28 +102,7 @@ const Footer = () => {
                   </div>
                 </div>
 
-                {/* Social Links */}
-                <div className="mt-8">
-                  <h5 className="text-white font-semibold mb-4 text-sm">עקבו אחרינו</h5>
-                  <div className="flex gap-4">
-                    {socialLinks.map((social, index) => (
-                      <motion.a
-                        key={index}
-                        href={social.href}
-                        target={social.href.startsWith('http') ? '_blank' : '_self'}
-                        rel={social.href.startsWith('http') ? 'noopener noreferrer' : ''}
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                        whileHover={{ scale: 1.2, y: -5 }}
-                        className={`w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 ${social.color} transition-all duration-300 hover:bg-gray-700`}
-                      >
-                        <social.icon className="text-lg" />
-                      </motion.a>
-                    ))}
-                  </div>
-                </div>
+
               </motion.div>
 
               {/* Quick Links */}
@@ -236,17 +219,44 @@ const Footer = () => {
       </footer>
 
       {/* Sticky Scroll to Top Button */}
-      <motion.button
-        onClick={scrollToTop}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        whileHover={{ scale: 1.1, y: -5 }}
-        whileTap={{ scale: 0.9 }}
-        className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-gray-900 font-bold hover:shadow-lg transition-all duration-300 z-50 shadow-lg"
-        style={{ zIndex: 1000 }}
-      >
-        ▲
-      </motion.button>
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            onClick={scrollToTop}
+            initial={{ 
+              opacity: 0, 
+              scale: 0,
+              y: 20
+            }}
+            animate={{ 
+              opacity: 1, 
+              scale: 1,
+              y: 0
+            }}
+            exit={{ 
+              opacity: 0, 
+              scale: 0.8,
+              y: 20
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+              duration: 0.3
+            }}
+            whileHover={{ 
+              scale: 1.1, 
+              y: -5,
+              boxShadow: "0 10px 25px rgba(212, 175, 55, 0.3)"
+            }}
+            whileTap={{ scale: 0.9 }}
+            className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-gray-900 font-bold hover:shadow-lg transition-all duration-300 z-50 shadow-lg"
+            style={{ zIndex: 1000 }}
+          >
+            ▲
+          </motion.button>
+        )}
+      </AnimatePresence>
     </>
   );
 };
