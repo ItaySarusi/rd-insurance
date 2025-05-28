@@ -7,7 +7,7 @@ const Hero = () => {
   const stats = [
     { icon: FaShieldAlt, number: '40+', label: 'שנות ניסיון' },
     { icon: FaUsers, number: 'אלפי', label: 'לקוחות מרוצים' },
-    { icon: FaCertificate, number: '100%', label: 'אמינות' },
+    { icon: FaCertificate, number: '100%', label: 'אמינות \u2003' },
   ];
 
   // Insurance company logos
@@ -36,7 +36,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 pb-16"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 pb-32"
       style={{
         backgroundImage: `linear-gradient(135deg, rgba(10, 10, 11, 0.7) 0%, rgba(26, 26, 29, 0.6) 100%), 
                           url('/images/hero-img-shake.jpeg')`,
@@ -47,8 +47,7 @@ const Hero = () => {
         minHeight: '100vh',
       }}
     >
-
-
+      {/* Main Hero Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex justify-center items-center">
           {/* Content Section */}
@@ -85,13 +84,13 @@ const Hero = () => {
               אמינות, ליווי אישי, ניסיון ומקצועיות
             </motion.p>
 
-            
-
+            {/* Buttons Container - Isolated */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-6 justify-center mb-24"
+              style={{ maxWidth: '600px', margin: '0 auto 6rem auto' }}
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -113,12 +112,12 @@ const Hero = () => {
               </motion.a>
             </motion.div>
 
-            {/* Trust Indicators - Rebuilt */}
+            {/* Stats Banners Container - Isolated */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto mb-16"
+              className="flex justify-center items-center gap-4 sm:gap-6 mb-32 w-full"
             >
               {stats.map((stat, index) => (
                 <motion.div
@@ -126,17 +125,17 @@ const Hero = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 1 + index * 0.2 }}
-                  className="bg-black/30 backdrop-blur-sm border border-blue-400/20 rounded-xl p-4 sm:p-6 hover:border-blue-400/40 hover:bg-black/40 transition-all duration-300 group"
+                  className="bg-black/30 backdrop-blur-sm border border-blue-400/20 rounded-xl hover:border-blue-400/40 hover:bg-black/40 transition-all duration-300 group inline-flex items-center h-20 sm:h-24"
                 >
-                  <div className="flex items-center justify-between text-right">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <stat.icon className="text-sm sm:text-lg text-gray-900" />
+                  <div className="flex items-center w-full px-3 py-4">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                      <stat.icon className="text-sm sm:text-base text-gray-900" />
                     </div>
-                    <div className="flex-1 mr-3 sm:mr-4">
-                      <div className="text-xl sm:text-2xl font-bold text-blue-400 mb-1">
+                    <div className="flex flex-col justify-center h-full text-right mr-5 ml-2">
+                      <div className="text-lg sm:text-xl font-bold text-blue-400 mb-1 leading-tight text-right">
                         {stat.number}
                       </div>
-                      <div className="text-gray-300 font-medium text-xs sm:text-sm">
+                      <div className="text-gray-300 font-medium text-xs sm:text-sm leading-tight text-right">
                         {stat.label}
                       </div>
                     </div>
@@ -144,70 +143,70 @@ const Hero = () => {
                 </motion.div>
               ))}
             </motion.div>
-
-            {/* Insurance Companies Logo Carousel */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.6 }}
-              className="mt-8 sm:mt-16 mb-8"
-            >
-              <div className="text-center mb-6 sm:mb-8">
-                <p className="text-gray-400 text-base sm:text-lg font-medium px-4">
-                  אנו עובדים עם חברות הביטוח המובילות בארץ:
-                </p>
-              </div>
-              
-              <div className="relative overflow-hidden bg-white/5 backdrop-blur-sm border border-blue-400/20 rounded-xl py-4 sm:py-6">
-                <div 
-                  className="flex animate-scroll-rtl" 
-                  style={{ 
-                    width: '200%',
-                    minWidth: 'max-content'
-                  }}
-                >
-                  {/* Two sets of logos for seamless infinite scroll */}
-                  {[...Array(2)].map((_, setIndex) => 
-                    insuranceLogos.map((logo, index) => (
-                      <div
-                        key={`set-${setIndex}-${index}`}
-                        className="flex-shrink-0 mx-2 sm:mx-4 w-24 h-16 sm:w-32 sm:h-20 flex items-center justify-center"
-                      >
-                        <img
-                          src={logo.src}
-                          alt={logo.name}
-                          className="max-w-full max-h-full object-contain opacity-75 hover:opacity-95 transition-opacity duration-300"
-                          style={{ 
-                            filter: logo.name === 'Harel' 
-                              ? 'grayscale(100%) brightness(0.4) contrast(2) saturate(0)' 
-                              : logo.name === 'Shlomo'
-                              ? 'grayscale(100%) brightness(0.4) contrast(1.8) saturate(0)'
-                              : 'grayscale(100%) brightness(0.6) contrast(1.5) saturate(0)',
-                            width: 'auto',
-                            height: 'auto',
-                            maxWidth: logo.name === 'Harel' 
-                              ? '140px' 
-                              : logo.name === 'PassportCard' 
-                              ? '120px' 
-                              : '100px',
-                            maxHeight: logo.name === 'Harel' 
-                              ? '70px' 
-                              : logo.name === 'PassportCard' 
-                              ? '60px' 
-                              : '50px'
-                          }}
-                          onError={() => console.log(`Failed to load: ${logo.name}`)}
-                        />
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
-
-
         </div>
+      </div>
+
+      {/* Logo Carousel - Completely Separate Section */}
+      <div className="absolute bottom-16 left-0 right-0 z-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.6 }}
+          className="w-full"
+        >
+          <div className="text-center mb-6 sm:mb-8">
+            <p className="text-gray-400 text-base sm:text-lg font-medium px-4">
+              אנו עובדים עם חברות הביטוח המובילות בארץ:
+            </p>
+          </div>
+          
+          <div className="relative overflow-hidden bg-white/5 backdrop-blur-sm border border-blue-400/20 rounded-xl py-4 sm:py-6 mx-4 sm:mx-6 lg:mx-8">
+            <div 
+              className="flex animate-scroll-rtl" 
+              style={{ 
+                width: '200%',
+                minWidth: 'max-content'
+              }}
+            >
+              {/* Two sets of logos for seamless infinite scroll */}
+              {[...Array(2)].map((_, setIndex) => 
+                insuranceLogos.map((logo, index) => (
+                  <div
+                    key={`set-${setIndex}-${index}`}
+                    className="flex-shrink-0 mx-2 sm:mx-4 w-24 h-16 sm:w-32 sm:h-20 flex items-center justify-center"
+                  >
+                    <img
+                      src={logo.src}
+                      alt={logo.name}
+                      className="max-w-full max-h-full object-contain opacity-75 hover:opacity-95 transition-opacity duration-300"
+                      style={{ 
+                        filter: logo.name === 'Harel' 
+                          ? 'grayscale(100%) brightness(0.4) contrast(2) saturate(0)' 
+                          : logo.name === 'Shlomo'
+                          ? 'grayscale(100%) brightness(0.4) contrast(1.8) saturate(0)'
+                          : 'grayscale(100%) brightness(0.6) contrast(1.5) saturate(0)',
+                        width: 'auto',
+                        height: 'auto',
+                        maxWidth: logo.name === 'Harel' 
+                          ? '140px' 
+                          : logo.name === 'PassportCard' 
+                          ? '120px' 
+                          : '100px',
+                        maxHeight: logo.name === 'Harel' 
+                          ? '70px' 
+                          : logo.name === 'PassportCard' 
+                          ? '60px' 
+                          : '50px'
+                      }}
+                      onError={() => console.log(`Failed to load: ${logo.name}`)}
+                    />
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       {/* Scroll Indicator */}
@@ -215,7 +214,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
