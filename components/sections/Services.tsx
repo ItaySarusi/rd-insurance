@@ -7,6 +7,7 @@ import { FaCar, FaHome, FaHeartbeat, FaBriefcase, FaPlane, FaShieldAlt, FaChevro
 
 const Services = () => {
   const [activeService, setActiveService] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   // Listen for custom event from footer
   useEffect(() => {
@@ -21,6 +22,44 @@ const Services = () => {
       window.removeEventListener('setActiveService', handleSetActiveService as EventListener);
     };
   }, []);
+
+  // Handle mobile service selection with proper timing
+  const handleMobileServiceClick = async (index: number) => {
+    if (isAnimating) return; // Prevent clicks during animation
+    
+    setIsAnimating(true);
+    
+    if (activeService === index) {
+      // Close current service
+      setActiveService(-1);
+      setTimeout(() => setIsAnimating(false), 300);
+    } else if (activeService === -1) {
+      // Open new service (no closing needed)
+      setActiveService(index);
+      setTimeout(() => {
+        setIsAnimating(false);
+        // Scroll to the opened service after animation
+        const serviceElement = document.querySelector(`[data-service-index="${index}"]`);
+        if (serviceElement) {
+          serviceElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }, 300);
+    } else {
+      // Close current and open new service
+      setActiveService(-1);
+      setTimeout(() => {
+        setActiveService(index);
+        setTimeout(() => {
+          setIsAnimating(false);
+          // Scroll to the newly opened service after both animations
+          const serviceElement = document.querySelector(`[data-service-index="${index}"]`);
+          if (serviceElement) {
+            serviceElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }, 300);
+      }, 300);
+    }
+  };
 
   const services = [
     {
@@ -73,46 +112,23 @@ const Services = () => {
     }
   ];
 
-  // Mobile layout component for service details
+  // Mobile layout component for service details - SIMPLIFIED
   const ServiceDetails = ({ serviceIndex }: { serviceIndex: number }) => (
     <motion.div
-      initial={{ opacity: 0, height: 0, y: -20 }}
+      initial={{ opacity: 0, height: 0 }}
       animate={{ 
         opacity: 1, 
-        height: 'auto', 
-        y: 0,
-        transition: {
-          duration: 0.5,
-          ease: "easeOut",
-          height: { duration: 0.5 },
-          opacity: { duration: 0.4, delay: 0.1 }
-        }
+        height: 'auto',
+        transition: { duration: 0.3, ease: "easeInOut" }
       }}
       exit={{ 
         opacity: 0, 
-        height: 0, 
-        y: -10,
-        transition: {
-          duration: 0.5,
-          ease: "easeInOut",
-          opacity: { duration: 0.3 },
-          height: { duration: 0.4, delay: 0.1 }
-        }
+        height: 0,
+        transition: { duration: 0.3, ease: "easeInOut" }
       }}
       className="lg:hidden neomorphism p-6 mt-4 overflow-hidden"
     >
-      <motion.div 
-        className="space-y-6"
-        initial={{ opacity: 0 }}
-        animate={{ 
-          opacity: 1,
-          transition: { duration: 0.4, delay: 0.2 }
-        }}
-        exit={{ 
-          opacity: 0,
-          transition: { duration: 0.3 }
-        }}
-      >
+      <div className="space-y-6">
         {/* Content */}
         <div>
           <div className="flex items-center gap-4 mb-4">
@@ -136,28 +152,13 @@ const Services = () => {
         </div>
 
         {/* Image */}
-        <motion.div 
-          className="relative"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ 
-            opacity: 1, 
-            scale: 1,
-            transition: { duration: 0.4, delay: 0.3 }
-          }}
-          exit={{ 
-            opacity: 0, 
-            scale: 0.95,
-            transition: { duration: 0.2 }
-          }}
-        >
-          <div className="glassmorphism-card p-4">
-            <img
-              src={services[serviceIndex].image}
-              alt={services[serviceIndex].title}
-              className="w-full h-48 object-cover rounded-xl"
-            />
-          </div>
-        </motion.div>
+        <div className="glassmorphism-card p-4">
+          <img
+            src={services[serviceIndex].image}
+            alt={services[serviceIndex].title}
+            className="w-full h-48 object-cover rounded-xl"
+          />
+        </div>
 
         {/* Features */}
         <div>
@@ -166,45 +167,21 @@ const Services = () => {
           </h4>
           <div className="grid grid-cols-1 gap-2">
             {services[serviceIndex].features.map((feature, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ 
-                  opacity: 1, 
-                  x: 0,
-                  transition: { duration: 0.4, delay: 0.4 + (index * 0.05) }
-                }}
-                exit={{ 
-                  opacity: 0, 
-                  x: -10,
-                  transition: { duration: 0.2, delay: index * 0.02 }
-                }}
                 className="flex items-center gap-3"
               >
                 <div className="w-5 h-5 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                   <FaCheck className="text-xs text-gray-900" />
                 </div>
                 <span className="text-gray-300 text-sm">{feature}</span>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* CTA Button */}
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ 
-            opacity: 1, 
-            y: 0,
-            transition: { duration: 0.4, delay: 0.6 }
-          }}
-          exit={{ 
-            opacity: 0, 
-            y: 10,
-            transition: { duration: 0.2 }
-          }}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+        <button
           onClick={() => {
             const element = document.querySelector('#contact');
             if (element) {
@@ -214,8 +191,8 @@ const Services = () => {
           className="btn-primary w-full"
         >
           קבל הצעת מחיר
-        </motion.button>
-      </motion.div>
+        </button>
+      </div>
     </motion.div>
   );
 
@@ -384,18 +361,18 @@ const Services = () => {
         {/* Mobile Layout */}
         <div className="lg:hidden space-y-4">
           {services.map((service, index) => (
-            <div key={index}>
+            <div key={index} data-service-index={index}>
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                onClick={() => setActiveService(activeService === index ? -1 : index)}
+                onClick={() => handleMobileServiceClick(index)}
                 className={`glassmorphism-card p-6 cursor-pointer transition-all duration-300 hover-lift ${
                   activeService === index 
                     ? 'border-blue-400 bg-blue-400/10' 
                     : 'hover:border-blue-400/50'
-                }`}
+                } ${isAnimating ? 'pointer-events-none' : ''}`}
               >
                 <div className="flex items-center gap-4">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${service.color}`}>
