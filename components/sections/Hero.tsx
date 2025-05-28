@@ -117,7 +117,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex justify-center items-center gap-4 sm:gap-6 mb-32 w-[90%] sm:w-full mx-auto"
+              className="flex justify-center items-center gap-4 sm:gap-6 mb-32 w-[70%] sm:w-full mx-auto"
             >
               {stats.map((stat, index) => (
                 <motion.div
