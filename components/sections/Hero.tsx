@@ -174,7 +174,7 @@ const Hero = () => {
                 insuranceLogos.map((logo, index) => (
                   <div
                     key={`set-${setIndex}-${index}`}
-                    className="flex-shrink-0 mx-2 sm:mx-4 w-24 h-16 sm:w-32 sm:h-20 flex items-center justify-center"
+                    className="flex-shrink-0 mx-6 sm:mx-4 w-24 h-16 sm:w-32 sm:h-20 flex items-center justify-center"
                   >
                     <img
                       src={logo.src}
