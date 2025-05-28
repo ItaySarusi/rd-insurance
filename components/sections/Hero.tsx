@@ -117,7 +117,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex justify-center items-center gap-4 sm:gap-6 mb-32 w-[70%] sm:w-full mx-auto"
+              className="flex justify-center items-center gap-2 sm:gap-6 mb-32 w-[70%] sm:w-full mx-auto"
             >
               {stats.map((stat, index) => (
                 <motion.div
@@ -127,11 +127,11 @@ const Hero = () => {
                   transition={{ duration: 0.6, delay: 1 + index * 0.2 }}
                   className="bg-black/30 backdrop-blur-sm border border-blue-400/20 rounded-xl hover:border-blue-400/40 hover:bg-black/40 transition-all duration-300 group inline-flex items-center h-20 sm:h-24"
                 >
-                  <div className="flex items-center w-full px-3 py-4">
+                  <div className="flex items-center w-full px-1.5 sm:px-3 py-4">
                     <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                       <stat.icon className="text-sm sm:text-base text-gray-900" />
                     </div>
-                    <div className="flex flex-col justify-center h-full text-right mr-5 ml-2">
+                    <div className="flex flex-col justify-center h-full text-right mr-3 sm:mr-5 ml-1 sm:ml-2">
                       <div className="text-lg sm:text-xl font-bold text-blue-400 mb-1 leading-tight text-right">
                         {stat.number}
                       </div>
