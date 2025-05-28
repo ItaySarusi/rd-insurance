@@ -5,7 +5,7 @@ import { FaShieldAlt, FaUsers, FaCertificate, FaPhone } from 'react-icons/fa';
 
 const Hero = () => {
   const stats = [
-    { icon: FaShieldAlt, number: '40+', label: 'שנות ניסיון' },
+    { icon: FaShieldAlt, number: '40+\u2002', label: 'שנות ניסיון' },
     { icon: FaUsers, number: 'אלפי', label: 'לקוחות מרוצים' },
     { icon: FaCertificate, number: '100%', label: 'אמינות \u2003' },
   ];
