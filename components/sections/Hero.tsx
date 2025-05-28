@@ -89,14 +89,14 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center mb-24"
+              className="flex flex-col sm:flex-row gap-6 justify-center mb-24 items-center"
               style={{ maxWidth: '600px', margin: '0 auto 6rem auto' }}
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={scrollToContact}
-                className="bg-gradient-to-r from-blue-400 to-blue-600 text-gray-900 text-lg px-12 py-5 rounded-lg font-bold hover:from-blue-300 hover:to-blue-500 transition-all duration-300 shadow-lg"
+                className="bg-gradient-to-r from-blue-400 to-blue-600 text-gray-900 text-lg px-6 sm:px-12 py-4 sm:py-5 rounded-lg font-bold hover:from-blue-300 hover:to-blue-500 transition-all duration-300 shadow-lg w-auto min-w-fit whitespace-nowrap"
               >
                 קבל הצעת מחיר חינם
               </motion.button>
@@ -105,7 +105,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="tel:+972-50-521-4902"
-                className="border-2 border-blue-400 text-blue-400 text-lg px-12 py-5 rounded-lg font-bold flex items-center justify-center gap-3 hover:bg-blue-400 hover:text-gray-900 transition-all duration-300"
+                className="border-2 border-blue-400 text-blue-400 text-lg px-6 sm:px-12 py-4 sm:py-5 rounded-lg font-bold flex items-center justify-center gap-3 hover:bg-blue-400 hover:text-gray-900 transition-all duration-300 w-auto min-w-fit whitespace-nowrap"
               >
                 <FaPhone className="text-lg" />
                 התקשר עכשיו
