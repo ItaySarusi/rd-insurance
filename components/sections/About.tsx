@@ -41,7 +41,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8"
           >
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">קצת עלינו</span>
+            <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">קצת עלינו</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -61,7 +61,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-gray-800/50 backdrop-blur-sm border border-blue-400/20 rounded-2xl p-8 hover:border-blue-400/40 transition-all duration-300 text-center"
+            className="bg-gray-800/50 backdrop-blur-sm border border-yellow-400/20 rounded-2xl p-8 hover:border-yellow-400/40 transition-all duration-300 text-center"
           >
             <h3 className="text-3xl font-bold text-white mb-6">
               המחויבות שלנו
@@ -73,7 +73,7 @@ const About = () => {
               אנחנו מאמינים בשירות אישי, שקיפות מלאה, וליווי לאורך כל הדרך!
             </p>
             <div className="flex justify-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center">
                 <FaHandshake className="text-2xl text-gray-900" />
               </div>
             </div>
@@ -89,7 +89,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold text-center mb-16"
           >
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">הערכים שלנו</span>
+            <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">הערכים שלנו</span>
           </motion.h3>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -100,9 +100,9 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="bg-gray-800/50 backdrop-blur-sm border border-blue-400/20 rounded-2xl p-8 text-center hover:border-blue-400/40 hover:bg-gray-800/70 transition-all duration-300 group"
+                className="bg-gray-800/50 backdrop-blur-sm border border-yellow-400/20 rounded-2xl p-8 text-center hover:border-yellow-400/40 hover:bg-gray-800/70 transition-all duration-300 group"
               >
-                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <value.icon className="text-3xl text-gray-900" />
                 </div>
                 <h4 className="text-2xl font-bold text-white mb-4 text-right">

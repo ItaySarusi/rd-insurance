@@ -10,6 +10,22 @@ const Hero = () => {
     { icon: FaCertificate, number: '100%', label: 'אמינות' },
   ];
 
+  // Insurance company logos
+  const insuranceLogos = [
+    { name: 'Ayalon', src: '/insurance-logos/ayalon-logo.png' },
+    { name: 'Hachshara', src: '/insurance-logos/Hachshara-logo.png' },
+    { name: 'Shomra', src: '/insurance-logos/shomra-logo.png' },
+    { name: 'Shlomo', src: '/insurance-logos/shlomo-logo.png' },
+    { name: 'PassportCard', src: '/insurance-logos/passportcard-logo.png' },
+    { name: 'Clal', src: '/insurance-logos/clal-logo.svg' },
+    { name: 'Harel', src: '/insurance-logos/harel-logo.png' },
+    { name: 'Manora', src: '/insurance-logos/manora-logo.svg' },
+    { name: 'Phoenix', src: '/insurance-logos/phoenix-logo.png' },
+    { name: 'Migdal', src: '/insurance-logos/migdal-logo.svg' }
+  ];
+
+  console.log(`Total logos: ${insuranceLogos.length}`, insuranceLogos.map(l => l.name));
+
   const scrollToContact = () => {
     const element = document.querySelector('#contact');
     if (element) {
@@ -127,6 +143,66 @@ const Hero = () => {
                   </div>
                 </motion.div>
               ))}
+            </motion.div>
+
+            {/* Insurance Companies Logo Carousel */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.6 }}
+              className="mt-16 mb-8"
+            >
+              <div className="text-center mb-8">
+                <p className="text-gray-400 text-lg font-medium">
+                  אנו עובדים עם חברות הביטוח המובילות בארץ:
+                </p>
+              </div>
+              
+              <div className="relative overflow-hidden bg-white/5 backdrop-blur-sm border border-blue-400/20 rounded-xl py-6">
+                <div 
+                  className="flex animate-scroll-rtl" 
+                  style={{ 
+                    width: '200%',
+                    minWidth: 'max-content'
+                  }}
+                >
+                  {/* Two sets of logos for seamless infinite scroll */}
+                  {[...Array(2)].map((_, setIndex) => 
+                    insuranceLogos.map((logo, index) => (
+                      <div
+                        key={`set-${setIndex}-${index}`}
+                        className="flex-shrink-0 mx-4 w-32 h-20 flex items-center justify-center"
+                      >
+                        <img
+                          src={logo.src}
+                          alt={logo.name}
+                          className="max-w-full max-h-full object-contain opacity-75 hover:opacity-95 transition-opacity duration-300"
+                          style={{ 
+                            filter: logo.name === 'Harel' 
+                              ? 'grayscale(100%) brightness(0.4) contrast(2) saturate(0)' 
+                              : logo.name === 'Shlomo'
+                              ? 'grayscale(100%) brightness(0.4) contrast(1.8) saturate(0)'
+                              : 'grayscale(100%) brightness(0.6) contrast(1.5) saturate(0)',
+                            width: 'auto',
+                            height: 'auto',
+                            maxWidth: logo.name === 'Harel' 
+                              ? '180px' 
+                              : logo.name === 'PassportCard' 
+                              ? '160px' 
+                              : '120px',
+                            maxHeight: logo.name === 'Harel' 
+                              ? '90px' 
+                              : logo.name === 'PassportCard' 
+                              ? '80px' 
+                              : '60px'
+                          }}
+                          onError={() => console.log(`Failed to load: ${logo.name}`)}
+                        />
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
             </motion.div>
           </motion.div>
 

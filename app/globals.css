@@ -187,12 +187,21 @@ body {
   100% { background-position: calc(200px + 100%) 0; }
 }
 
+@keyframes scroll-rtl {
+  0% { transform: translateX(50%); }
+  100% { transform: translateX(0%); }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
 .animate-pulse-blue {
   animation: pulse-blue 2s infinite;
+}
+
+.animate-scroll-rtl {
+  animation: scroll-rtl 60s linear infinite;
 }
 
 .animate-shimmer {
