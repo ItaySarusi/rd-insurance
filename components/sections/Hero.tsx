@@ -118,7 +118,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto mb-16"
             >
               {stats.map((stat, index) => (
                 <motion.div
@@ -126,17 +126,17 @@ const Hero = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 1 + index * 0.2 }}
-                  className="bg-black/30 backdrop-blur-sm border border-blue-400/20 rounded-xl p-6 hover:border-blue-400/40 hover:bg-black/40 transition-all duration-300 group"
+                  className="bg-black/30 backdrop-blur-sm border border-blue-400/20 rounded-xl p-4 sm:p-6 hover:border-blue-400/40 hover:bg-black/40 transition-all duration-300 group"
                 >
                   <div className="flex items-center justify-between text-right">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <stat.icon className="text-lg text-gray-900" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <stat.icon className="text-sm sm:text-lg text-gray-900" />
                     </div>
-                    <div className="flex-1 mr-4">
-                      <div className="text-2xl font-bold text-blue-400 mb-1">
+                    <div className="flex-1 mr-3 sm:mr-4">
+                      <div className="text-xl sm:text-2xl font-bold text-blue-400 mb-1">
                         {stat.number}
                       </div>
-                      <div className="text-gray-300 font-medium text-sm">
+                      <div className="text-gray-300 font-medium text-xs sm:text-sm">
                         {stat.label}
                       </div>
                     </div>
@@ -150,15 +150,15 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.6 }}
-              className="mt-16 mb-8"
+              className="mt-8 sm:mt-16 mb-8"
             >
-              <div className="text-center mb-8">
-                <p className="text-gray-400 text-lg font-medium">
+              <div className="text-center mb-6 sm:mb-8">
+                <p className="text-gray-400 text-base sm:text-lg font-medium px-4">
                   אנו עובדים עם חברות הביטוח המובילות בארץ:
                 </p>
               </div>
               
-              <div className="relative overflow-hidden bg-white/5 backdrop-blur-sm border border-blue-400/20 rounded-xl py-6">
+              <div className="relative overflow-hidden bg-white/5 backdrop-blur-sm border border-blue-400/20 rounded-xl py-4 sm:py-6">
                 <div 
                   className="flex animate-scroll-rtl" 
                   style={{ 
@@ -171,7 +171,7 @@ const Hero = () => {
                     insuranceLogos.map((logo, index) => (
                       <div
                         key={`set-${setIndex}-${index}`}
-                        className="flex-shrink-0 mx-4 w-32 h-20 flex items-center justify-center"
+                        className="flex-shrink-0 mx-2 sm:mx-4 w-24 h-16 sm:w-32 sm:h-20 flex items-center justify-center"
                       >
                         <img
                           src={logo.src}
@@ -186,15 +186,15 @@ const Hero = () => {
                             width: 'auto',
                             height: 'auto',
                             maxWidth: logo.name === 'Harel' 
-                              ? '180px' 
+                              ? '140px' 
                               : logo.name === 'PassportCard' 
-                              ? '160px' 
-                              : '120px',
+                              ? '120px' 
+                              : '100px',
                             maxHeight: logo.name === 'Harel' 
-                              ? '90px' 
+                              ? '70px' 
                               : logo.name === 'PassportCard' 
-                              ? '80px' 
-                              : '60px'
+                              ? '60px' 
+                              : '50px'
                           }}
                           onError={() => console.log(`Failed to load: ${logo.name}`)}
                         />
