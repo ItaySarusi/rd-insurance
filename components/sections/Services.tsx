@@ -1,13 +1,12 @@
 'use client';
 
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { FaCar, FaHome, FaHeartbeat, FaBriefcase, FaPlane, FaShieldAlt, FaChevronLeft, FaChevronDown, FaCheck, FaCircle } from 'react-icons/fa';
 
 const Services = () => {
   const [activeService, setActiveService] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   // Listen for custom event from footer
   useEffect(() => {
@@ -23,44 +22,14 @@ const Services = () => {
     };
   }, []);
 
-  // Handle mobile service selection with proper timing
-  const handleMobileServiceClick = async (index: number) => {
-    if (isAnimating) return; // Prevent clicks during animation
-    
-    setIsAnimating(true);
-    
+  // Handle mobile service selection - SIMPLIFIED
+  const handleMobileServiceClick = (index: number) => {
     if (activeService === index) {
       // Close current service
       setActiveService(-1);
-      setTimeout(() => setIsAnimating(false), 600); // Longer closing time
-    } else if (activeService === -1) {
-      // Open new service (no closing needed)
-      setActiveService(index);
-      setTimeout(() => {
-        setIsAnimating(false);
-        // Scroll to the opened service after animation
-        const serviceElement = document.querySelector(`[data-service-index="${index}"]`);
-        if (serviceElement) {
-          serviceElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      }, 600);
     } else {
-      // Close current and open new service
-      setActiveService(-1);
-      setTimeout(() => {
-        // Small delay before opening new service
-        setTimeout(() => {
-          setActiveService(index);
-          setTimeout(() => {
-            setIsAnimating(false);
-            // Scroll to the newly opened service after both animations
-            const serviceElement = document.querySelector(`[data-service-index="${index}"]`);
-            if (serviceElement) {
-              serviceElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-          }, 600);
-        }, 200); // 200ms delay between close and open
-      }, 600); // 600ms for closing animation
+      // Open new service (will automatically close current one)
+      setActiveService(index);
     }
   };
 
@@ -115,88 +84,42 @@ const Services = () => {
     }
   ];
 
-  // Mobile layout component for service details - SIMPLIFIED
+  // Mobile layout component for service details - MUCH SIMPLER
   const ServiceDetails = ({ serviceIndex }: { serviceIndex: number }) => (
-    <motion.div
-      initial={{ opacity: 0, height: 0 }}
-      animate={{ 
-        opacity: 1, 
-        height: 'auto',
-        transition: { duration: 0.6, ease: "easeInOut" }
-      }}
-      exit={{ 
-        opacity: 0, 
-        height: 0,
-        transition: { duration: 0.6, ease: "easeInOut" }
-      }}
-      className="lg:hidden neomorphism p-6 mt-4 overflow-hidden"
-    >
-      <div className="space-y-6">
-        {/* Content */}
-        <div>
-          <div className="flex items-center gap-4 mb-4">
-            <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${services[serviceIndex].color}`}>
-              {services[serviceIndex].icon && 
-                React.createElement(services[serviceIndex].icon, { className: "text-xl text-white" })
-              }
+    <div className="lg:hidden bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-4 mt-3 space-y-4">
+      {/* Description */}
+      <p className="text-gray-300 text-sm leading-relaxed">
+        {services[serviceIndex].description}
+      </p>
+
+      {/* Features - Simple list without animations */}
+      <div>
+        <h4 className="text-base font-semibold text-white mb-2">
+          מה כלול בשירות:
+        </h4>
+        <div className="space-y-1">
+          {services[serviceIndex].features.map((feature, index) => (
+            <div key={index} className="flex items-center gap-2 text-sm">
+              <div className="w-1.5 h-1.5 bg-blue-400 rounded-full flex-shrink-0"></div>
+              <span className="text-gray-300">{feature}</span>
             </div>
-            <div>
-              <h3 className="text-xl font-bold text-white">
-                {services[serviceIndex].title}
-              </h3>
-              <p className="text-blue-400 text-sm">
-                {services[serviceIndex].subtitle}
-              </p>
-            </div>
-          </div>
-          <p className="text-gray-300 leading-relaxed">
-            {services[serviceIndex].description}
-          </p>
+          ))}
         </div>
-
-        {/* Image */}
-        <div className="glassmorphism-card p-4">
-          <img
-            src={services[serviceIndex].image}
-            alt={services[serviceIndex].title}
-            className="w-full h-48 object-cover rounded-xl"
-          />
-        </div>
-
-        {/* Features */}
-        <div>
-          <h4 className="text-lg font-bold text-white mb-3">
-            מה כלול בשירות:
-          </h4>
-          <div className="grid grid-cols-1 gap-2">
-            {services[serviceIndex].features.map((feature, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-3"
-              >
-                <div className="w-5 h-5 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <FaCheck className="text-xs text-gray-900" />
-                </div>
-                <span className="text-gray-300 text-sm">{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Button */}
-        <button
-          onClick={() => {
-            const element = document.querySelector('#contact');
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' });
-            }
-          }}
-          className="btn-primary w-full"
-        >
-          קבל הצעת מחיר
-        </button>
       </div>
-    </motion.div>
+
+      {/* CTA Button */}
+      <button
+        onClick={() => {
+          const element = document.querySelector('#contact');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
+        className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:from-blue-600 hover:to-blue-700 transition-colors"
+      >
+        קבל הצעת מחיר
+      </button>
+    </div>
   );
 
   return (
@@ -375,7 +298,7 @@ const Services = () => {
                   activeService === index 
                     ? 'border-blue-400 bg-blue-400/10' 
                     : 'hover:border-blue-400/50'
-                } ${isAnimating ? 'pointer-events-none' : ''}`}
+                }`}
               >
                 <div className="flex items-center gap-4">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${service.color}`}>
@@ -397,12 +320,10 @@ const Services = () => {
                 </div>
               </motion.div>
               
-              {/* Service Details - appears right under the selected service */}
-              <AnimatePresence>
-                {activeService === index && (
-                  <ServiceDetails key={`service-${index}`} serviceIndex={index} />
-                )}
-              </AnimatePresence>
+              {/* Service Details - Simple conditional rendering */}
+              {activeService === index && (
+                <ServiceDetails serviceIndex={index} />
+              )}
             </div>
           ))}
         </div>
