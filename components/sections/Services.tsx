@@ -84,8 +84,8 @@ const Services = () => {
         transition: {
           duration: 0.5,
           ease: "easeOut",
-          height: { duration: 0.4 },
-          opacity: { duration: 0.3, delay: 0.1 }
+          height: { duration: 0.5 },
+          opacity: { duration: 0.4, delay: 0.1 }
         }
       }}
       exit={{ 
@@ -93,10 +93,10 @@ const Services = () => {
         height: 0, 
         y: -10,
         transition: {
-          duration: 0.4,
-          ease: "easeIn",
-          opacity: { duration: 0.2 },
-          height: { duration: 0.3, delay: 0.1 }
+          duration: 0.5,
+          ease: "easeInOut",
+          opacity: { duration: 0.3 },
+          height: { duration: 0.4, delay: 0.1 }
         }
       }}
       className="lg:hidden neomorphism p-6 mt-4 overflow-hidden"
@@ -106,11 +106,11 @@ const Services = () => {
         initial={{ opacity: 0 }}
         animate={{ 
           opacity: 1,
-          transition: { duration: 0.3, delay: 0.2 }
+          transition: { duration: 0.4, delay: 0.2 }
         }}
         exit={{ 
           opacity: 0,
-          transition: { duration: 0.2 }
+          transition: { duration: 0.3 }
         }}
       >
         {/* Content */}
@@ -418,7 +418,7 @@ const Services = () => {
               </motion.div>
               
               {/* Service Details - appears right under the selected service */}
-              <AnimatePresence mode="wait">
+              <AnimatePresence>
                 {activeService === index && (
                   <ServiceDetails key={`service-${index}`} serviceIndex={index} />
                 )}
