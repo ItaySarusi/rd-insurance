@@ -32,7 +32,7 @@ const Services = () => {
     if (activeService === index) {
       // Close current service
       setActiveService(-1);
-      setTimeout(() => setIsAnimating(false), 300);
+      setTimeout(() => setIsAnimating(false), 600); // Longer closing time
     } else if (activeService === -1) {
       // Open new service (no closing needed)
       setActiveService(index);
@@ -43,21 +43,24 @@ const Services = () => {
         if (serviceElement) {
           serviceElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
-      }, 300);
+      }, 600);
     } else {
       // Close current and open new service
       setActiveService(-1);
       setTimeout(() => {
-        setActiveService(index);
+        // Small delay before opening new service
         setTimeout(() => {
-          setIsAnimating(false);
-          // Scroll to the newly opened service after both animations
-          const serviceElement = document.querySelector(`[data-service-index="${index}"]`);
-          if (serviceElement) {
-            serviceElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }
-        }, 300);
-      }, 300);
+          setActiveService(index);
+          setTimeout(() => {
+            setIsAnimating(false);
+            // Scroll to the newly opened service after both animations
+            const serviceElement = document.querySelector(`[data-service-index="${index}"]`);
+            if (serviceElement) {
+              serviceElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+          }, 600);
+        }, 200); // 200ms delay between close and open
+      }, 600); // 600ms for closing animation
     }
   };
 
@@ -119,12 +122,12 @@ const Services = () => {
       animate={{ 
         opacity: 1, 
         height: 'auto',
-        transition: { duration: 0.3, ease: "easeInOut" }
+        transition: { duration: 0.6, ease: "easeInOut" }
       }}
       exit={{ 
         opacity: 0, 
         height: 0,
-        transition: { duration: 0.3, ease: "easeInOut" }
+        transition: { duration: 0.6, ease: "easeInOut" }
       }}
       className="lg:hidden neomorphism p-6 mt-4 overflow-hidden"
     >
