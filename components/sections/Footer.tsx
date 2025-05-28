@@ -79,25 +79,25 @@ const Footer = () => {
                 {/* Contact Info */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-sm">
-                    <FaPhone className="text-yellow-400 flex-shrink-0" />
-                    <a href="tel:+97249893314" className="text-gray-300 hover:text-yellow-400 transition-colors">
+                    <FaPhone className="text-blue-400 flex-shrink-0" />
+                    <a href="tel:+97249893314" className="text-gray-300 hover:text-blue-400 transition-colors">
                       משרד: 04-989-3314
                     </a>
                   </div>
                   <div className="flex items-center gap-3 text-sm">
-                    <FaPhone className="text-yellow-400 flex-shrink-0" />
-                    <a href="tel:+972505214902" className="text-gray-300 hover:text-yellow-400 transition-colors">
+                    <FaPhone className="text-blue-400 flex-shrink-0" />
+                    <a href="tel:+972505214902" className="text-gray-300 hover:text-blue-400 transition-colors">
                       נייד: 050-521-4902
                     </a>
                   </div>
                   <div className="flex items-center gap-3 text-sm">
-                    <FaEnvelope className="text-yellow-400 flex-shrink-0" />
-                    <a href="mailto:Elaydaniel1802@gmail.com" className="text-gray-300 hover:text-yellow-400 transition-colors">
+                    <FaEnvelope className="text-blue-400 flex-shrink-0" />
+                    <a href="mailto:Elaydaniel1802@gmail.com" className="text-gray-300 hover:text-blue-400 transition-colors">
                       Elaydaniel1802@gmail.com
                     </a>
                   </div>
                   <div className="flex items-center gap-3 text-sm">
-                    <FaMapMarkerAlt className="text-yellow-400 flex-shrink-0" />
+                    <FaMapMarkerAlt className="text-blue-400 flex-shrink-0" />
                     <span className="text-gray-300">התמר 6 יקנעם עילית</span>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ const Footer = () => {
                     >
                       <button
                         onClick={() => scrollToSection(link.href)}
-                        className="text-gray-300 hover:text-yellow-400 transition-colors duration-300 text-sm flex items-center gap-2 hover:translate-x-2"
+                        className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm flex items-center gap-2 hover:translate-x-2"
                       >
                         <span>◄</span>
                         <span>{link.label}</span>
@@ -153,7 +153,7 @@ const Footer = () => {
                     >
                       <button
                         onClick={() => scrollToService(service.index)}
-                        className="text-gray-300 hover:text-yellow-400 transition-colors duration-300 text-sm flex items-center gap-2 hover:translate-x-2"
+                        className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm flex items-center gap-2 hover:translate-x-2"
                       >
                         <span>◄</span>
                         <span>{service.name}</span>
@@ -183,13 +183,13 @@ const Footer = () => {
 
               {/* Legal Links */}
               <div className="flex gap-6 text-sm">
-                <button className="text-gray-400 hover:text-yellow-400 transition-colors">
+                <button className="text-gray-400 hover:text-blue-400 transition-colors">
                   תנאי שימוש
                 </button>
-                <button className="text-gray-400 hover:text-yellow-400 transition-colors">
+                <button className="text-gray-400 hover:text-blue-400 transition-colors">
                   מדיניות פרטיות
                 </button>
-                <button className="text-gray-400 hover:text-yellow-400 transition-colors">
+                <button className="text-gray-400 hover:text-blue-400 transition-colors">
                   הצהרת נגישות
                 </button>
               </div>
@@ -247,10 +247,10 @@ const Footer = () => {
             whileHover={{ 
               scale: 1.1, 
               y: -5,
-              boxShadow: "0 10px 25px rgba(212, 175, 55, 0.3)"
+              boxShadow: "0 10px 25px rgba(96, 165, 250, 0.3)"
             }}
             whileTap={{ scale: 0.9 }}
-            className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-gray-900 font-bold hover:shadow-lg transition-all duration-300 z-50 shadow-lg"
+            className="fixed bottom-6 right-6 w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-gray-900 font-bold hover:shadow-lg transition-all duration-300 z-50 shadow-lg"
             style={{ zIndex: 1000 }}
           >
             ▲

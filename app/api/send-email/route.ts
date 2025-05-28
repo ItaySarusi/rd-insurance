@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
           direction: rtl;
         }
         .header {
-          background: linear-gradient(135deg, #D4AF37 0%, #B8941F 100%);
+          background: linear-gradient(135deg, #87CEEB 0%, #5F9EA0 100%);
           padding: 30px 20px;
           text-align: center;
           direction: rtl;
@@ -96,7 +96,7 @@ export async function POST(request: NextRequest) {
           padding: 12px;
           background-color: #f7fafc;
           border-radius: 8px;
-          border-right: 4px solid #D4AF37;
+          border-right: 4px solid #87CEEB;
           text-align: right;
           direction: rtl;
         }
@@ -117,9 +117,9 @@ export async function POST(request: NextRequest) {
           font-size: 14px;
           direction: rtl;
         }
-        .gold-line {
+        .blue-line {
           height: 3px;
-          background: linear-gradient(90deg, #D4AF37 0%, #B8941F 100%);
+          background: linear-gradient(90deg, #87CEEB 0%, #5F9EA0 100%);
           margin: 20px 0;
         }
         h2, h3, p, ul, li {
@@ -169,7 +169,7 @@ export async function POST(request: NextRequest) {
           </div>
           ` : ''}
           
-          <div class="gold-line"></div>
+          <div class="blue-line"></div>
           
           <p style="color: #4a5568; font-style: italic;">
             הודעה זו נשלחה דרך טופס יצירת קשר באתר רוני דניאל ביטוח ב-${new Date().toLocaleString('he-IL')}.
@@ -223,7 +223,7 @@ export async function POST(request: NextRequest) {
           direction: rtl;
         }
         .header {
-          background: linear-gradient(135deg, #D4AF37 0%, #B8941F 100%);
+          background: linear-gradient(135deg, #87CEEB 0%, #5F9EA0 100%);
           padding: 30px 20px;
           text-align: center;
           direction: rtl;
@@ -245,11 +245,11 @@ export async function POST(request: NextRequest) {
           text-align: right;
         }
         .highlight-box {
-          background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 148, 31, 0.1) 100%);
+          background: linear-gradient(135deg, rgba(135, 206, 235, 0.1) 0%, rgba(95, 158, 160, 0.1) 100%);
           border-radius: 8px;
           padding: 20px;
           margin: 20px 0;
-          border-right: 4px solid #D4AF37;
+          border-right: 4px solid #87CEEB;
           direction: rtl;
           text-align: right;
         }
@@ -261,9 +261,9 @@ export async function POST(request: NextRequest) {
           font-size: 14px;
           direction: rtl;
         }
-        .gold-line {
+        .blue-line {
           height: 3px;
-          background: linear-gradient(90deg, #D4AF37 0%, #B8941F 100%);
+          background: linear-gradient(90deg, #87CEEB 0%, #5F9EA0 100%);
           margin: 20px 0;
         }
         h2, h3, p, ul, li {
@@ -308,7 +308,7 @@ export async function POST(request: NextRequest) {
             המומחים שלנו מוכנים לעזור לך לנווט בעולם המורכב של ביטוחים. עם למעלה מ-25 שנות ניסיון, אנו מחויבים להגן על הנכסים והעתיד שלך.
           </p>
           
-          <div class="gold-line"></div>
+          <div class="blue-line"></div>
           
           <p style="color: #4a5568;">
             <strong>זקוק לעזרה מיידית?</strong><br>

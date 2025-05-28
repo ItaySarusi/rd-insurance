@@ -18,10 +18,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
-      { url: '/images/logo-rd.png', sizes: '192x192', type: 'image/png' },
+      { url: '/images/RD-logo.png', sizes: '192x192', type: 'image/png' },
     ],
     apple: [
-      { url: '/images/logo-rd.png', sizes: '180x180', type: 'image/png' },
+      { url: '/images/RD-logo.png', sizes: '180x180', type: 'image/png' },
     ],
     shortcut: '/favicon.png',
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     locale: 'he_IL',
     images: [
       {
-        url: '/images/logo-rd.png',
+        url: '/images/RD-logo.png',
         width: 1200,
         height: 630,
         alt: 'רוני דניאל - סוכן ביטוח',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'רוני דניאל - סוכן ביטוח פנסיוני ואלמנטרי',
     description: 'מקצועיות, ניסיון ואמינות - פתרונות ביטוח מותאמים אישית',
-    images: ['/images/logo-rd.png'],
+    images: ['/images/RD-logo.png'],
   },
 };
 
@@ -65,7 +65,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#D4AF37" />
+        <meta name="theme-color" content="#87CEEB" />
       </head>
       <body
         className={`${inter.variable} antialiased font-heebo`}
@@ -73,7 +73,6 @@ export default function RootLayout({
         <ThemeProvider>
           {children}
         </ThemeProvider>
-        <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
       </body>
     </html>
   );

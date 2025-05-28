@@ -54,7 +54,7 @@ const Navbar = () => {
           >
             <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-xl overflow-hidden">
               <img 
-                src="/images/logo-rd.png" 
+                src="/images/RD-logo.png" 
                 alt="רוני דניאל לוגו" 
                 className="w-full h-full object-cover"
               />
@@ -80,11 +80,11 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="relative px-6 py-3 text-white hover:text-yellow-400 transition-colors duration-300 font-medium text-lg whitespace-nowrap"
+                className="relative px-6 py-3 text-white hover:text-blue-400 transition-colors duration-300 font-medium text-lg whitespace-nowrap"
               >
                 {item.label}
                 <motion.div
-                  className="absolute bottom-0 right-0 h-0.5 bg-gradient-to-l from-yellow-400 to-yellow-600"
+                  className="absolute bottom-0 right-0 h-0.5 bg-gradient-to-l from-blue-400 to-blue-600"
                   initial={{ width: 0 }}
                   whileHover={{ width: '100%' }}
                   transition={{ duration: 0.3 }}
@@ -100,13 +100,13 @@ const Navbar = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
-              className="hidden p-3 rounded-lg glassmorphism-card hover:bg-yellow-400/10 transition-colors duration-300"
+              className="hidden p-3 rounded-lg glassmorphism-card hover:bg-blue-400/10 transition-colors duration-300"
               title={isDarkMode ? 'מעבר למצב בהיר' : 'מעבר למצב כהה'}
             >
               {isDarkMode ? (
-                <FaSun className="text-yellow-400 text-lg" />
+                <FaSun className="text-blue-400 text-lg" />
               ) : (
-                <FaMoon className="text-yellow-400 text-lg" />
+                <FaMoon className="text-blue-400 text-lg" />
               )}
             </motion.button>
 
@@ -114,7 +114,7 @@ const Navbar = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-yellow-400 text-gray-900 px-6 py-2.5 rounded-lg font-semibold hover:bg-yellow-300 transition-colors duration-300 shadow-md border border-yellow-500"
+              className="bg-gradient-to-r from-blue-400 to-blue-600 text-gray-900 px-6 py-2.5 rounded-lg font-semibold hover:from-blue-300 hover:to-blue-500 transition-all duration-300 shadow-md"
               onClick={() => scrollToSection('#contact')}
             >
               קבל הצעת מחיר
@@ -128,9 +128,9 @@ const Navbar = () => {
             className="lg:hidden p-2 rounded-lg glassmorphism-card"
           >
             {isMobileMenuOpen ? (
-              <FaTimes className="text-xl text-yellow-400" />
+              <FaTimes className="text-xl text-blue-400" />
             ) : (
-              <FaBars className="text-xl text-yellow-400" />
+              <FaBars className="text-xl text-blue-400" />
             )}
           </motion.button>
         </div>
@@ -154,7 +154,7 @@ const Navbar = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="w-full text-right py-3 px-4 rounded-lg hover:bg-yellow-400/10 transition-colors duration-300 text-white hover:text-yellow-400 font-medium"
+              className="w-full text-right py-3 px-4 rounded-lg hover:bg-blue-400/10 transition-colors duration-300 text-white hover:text-blue-400 font-medium"
             >
               {item.label}
             </motion.button>
@@ -166,13 +166,13 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: navItems.length * 0.1 }}
             onClick={toggleTheme}
-            className="hidden w-full text-right py-3 px-4 rounded-lg hover:bg-yellow-400/10 transition-colors duration-300 text-white hover:text-yellow-400 font-medium flex items-center justify-between"
+            className="hidden w-full text-right py-3 px-4 rounded-lg hover:bg-blue-400/10 transition-colors duration-300 text-white hover:text-blue-400 font-medium flex items-center justify-between"
           >
             <span>{isDarkMode ? 'מצב בהיר' : 'מצב כהה'}</span>
             {isDarkMode ? (
-              <FaSun className="text-yellow-400 text-lg" />
+              <FaSun className="text-blue-400 text-lg" />
             ) : (
-              <FaMoon className="text-yellow-400 text-lg" />
+              <FaMoon className="text-blue-400 text-lg" />
             )}
           </motion.button>
 

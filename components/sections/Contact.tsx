@@ -20,8 +20,10 @@ const Contact = () => {
     'ביטוח דירה ונכסים',
     'ביטוח בריאות',
     'ביטוח עסקי',
-    'ביטוח נסיעות',
+    'ביטוח נסיעות לחול',
     'ביטוח חיים',
+    'חסכונות ופנסיונים',
+    'אובדן כושר עבודה',
     'אחר'
   ];
 
@@ -31,14 +33,14 @@ const Contact = () => {
       title: 'משרד',
       details: '04-989-3314',
       action: 'tel:+97249893314',
-      color: 'from-green-500 to-green-700'
+      color: 'from-yellow-500 to-yellow-700'
     },
     {
       icon: FaPhone,
       title: 'נייד',
       details: '050-521-4902',
       action: 'tel:+972505214902',
-      color: 'from-blue-500 to-blue-700'
+      color: 'from-green-400 to-green-600'
     },
     {
       icon: FaWhatsapp,
@@ -52,7 +54,7 @@ const Contact = () => {
       title: 'אימייל',
       details: 'Elaydaniel1802@gmail.com',
       action: 'mailto:Elaydaniel1802@gmail.com',
-      color: 'from-purple-500 to-purple-700'
+      color: 'from-blue-500 to-blue-700'
     },
     {
       icon: FaMapMarkerAlt,
@@ -136,7 +138,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8"
           >
-            <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">צור קשר</span>
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">צור קשר</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -178,7 +180,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
                         placeholder="הכנס את שמך המלא"
                       />
                     </div>
@@ -194,7 +196,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -212,7 +214,7 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
                         placeholder="050-123-4567"
                       />
                     </div>
@@ -226,7 +228,7 @@ const Contact = () => {
                         name="service"
                         value={formData.service}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
                       >
                         <option value="">בחר סוג שירות</option>
                         {services.map((service, index) => (
@@ -248,7 +250,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={5}
-                      className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 transition-all duration-300 resize-none"
+                      className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 resize-none"
                       placeholder="ספר לנו על הצרכים שלך..."
                     />
                   </div>
