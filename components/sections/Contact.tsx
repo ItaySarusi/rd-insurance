@@ -22,8 +22,9 @@ const Contact = () => {
     'ביטוח עסקי',
     'ביטוח נסיעות לחול',
     'ביטוח חיים',
-    'חסכונות ופנסיונים',
+    'חסכונות פנסיונים',
     'אובדן כושר עבודה',
+    'קרן השתלמות וקופות גמל',
     'אחר'
   ];
 
@@ -126,8 +127,6 @@ const Contact = () => {
       id="contact" 
       className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900"
     >
-
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
@@ -323,6 +322,7 @@ const Contact = () => {
                     viewport={{ once: true }}
                     whileHover={{ scale: info.action ? 1.02 : 1 }}
                     className={`glassmorphism-card p-6 flex items-center gap-4 ${info.action ? 'hover-lift cursor-pointer' : 'cursor-default'} block`}
+                    {...(index === 1 && { 'data-phone-mobile': true })}
                   >
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${info.color}`}>
                       <info.icon className="text-xl text-white" />

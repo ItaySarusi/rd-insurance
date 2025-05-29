@@ -33,6 +33,36 @@ const Hero = () => {
     }
   };
 
+  const handleCallClick = () => {
+    // Check if it's a desktop/PC (wider than mobile/tablet)
+    const isDesktop = window.innerWidth >= 1024;
+    
+    if (isDesktop) {
+      // On desktop, scroll to contact and highlight phone number
+      const contactElement = document.querySelector('#contact');
+      if (contactElement) {
+        contactElement.scrollIntoView({ behavior: 'smooth' });
+        
+        // Wait for scroll to complete, then highlight the mobile phone number
+        setTimeout(() => {
+          const phoneElement = document.querySelector('[data-phone-mobile]');
+          if (phoneElement) {
+            // Add highlight animation class
+            phoneElement.classList.add('phone-highlight-animation');
+            
+            // Remove the class after animation completes
+            setTimeout(() => {
+              phoneElement.classList.remove('phone-highlight-animation');
+            }, 2000);
+          }
+        }, 800); // Wait for smooth scroll to complete
+      }
+    } else {
+      // On mobile/tablet, make the phone call
+      window.location.href = 'tel:+972-50-521-4902';
+    }
+  };
+
   return (
     <section
       id="hero"
@@ -101,15 +131,15 @@ const Hero = () => {
                 קבל הצעת מחיר חינם
               </motion.button>
               
-              <motion.a
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="tel:+972-50-521-4902"
+                onClick={handleCallClick}
                 className="border-2 border-blue-400 text-blue-400 text-lg px-6 sm:px-12 py-4 sm:py-5 rounded-lg font-bold flex items-center justify-center gap-3 hover:bg-blue-400 hover:text-gray-900 transition-all duration-300 w-auto min-w-fit whitespace-nowrap"
               >
                 <FaPhone className="text-lg" />
                 התקשר עכשיו
-              </motion.a>
+              </motion.button>
             </motion.div>
 
             {/* Stats Banners Container - Isolated */}
