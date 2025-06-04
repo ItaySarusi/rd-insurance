@@ -16,7 +16,7 @@ Click this link to immediately notify Google about your sitemap.
 4. Submit sitemap: `/sitemap.xml`
 5. Use "URL Inspection" → "Request Indexing"
 
-### 3. Google My Business (Critical for Local SEO!)
+### 3. Google My Business (Critical for Local SEO!
 
 1. Go to: https://business.google.com/
 2. Create listing for "רוני דניאל - סוכן ביטוח"

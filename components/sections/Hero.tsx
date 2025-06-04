@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaShieldAlt, FaUsers, FaCertificate, FaPhone } from 'react-icons/fa';
+import { FaShieldAlt, FaUsers, FaCertificate, FaPhone, FaPlane } from 'react-icons/fa';
 
 const Hero = () => {
   const stats = [
@@ -63,6 +63,10 @@ const Hero = () => {
     }
   };
 
+  const handleTravelInsuranceClick = () => {
+    window.open('https://marketing.passportcard.co.il/BLP/nTBE66XqnvTG6TvvdaQQag%3d%3d', '_blank')
+  }
+
   return (
     <section
       id="hero"
@@ -119,8 +123,8 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center mb-24 items-center"
-              style={{ maxWidth: '600px', margin: '0 auto 6rem auto' }}
+              className="flex flex-col sm:flex-row gap-6 justify-center mb-12 items-center"
+              style={{ maxWidth: '600px', margin: '0 auto 3rem auto' }}
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -142,12 +146,89 @@ const Hero = () => {
               </motion.button>
             </motion.div>
 
+            {/* Travel Insurance Button - Special Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="flex justify-center mb-16"
+            >
+              <motion.button
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 30px rgba(16, 185, 129, 0.3)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleTravelInsuranceClick}
+                className="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-lg px-8 sm:px-16 py-4 sm:py-5 rounded-xl font-bold hover:from-green-400 hover:to-emerald-500 transition-all duration-300 shadow-lg flex items-center justify-center gap-4 relative overflow-hidden group"
+              >
+                {/* Animated background effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  animate={{
+                    x: ['-100%', '100%']
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                />
+                
+                {/* Airplane icon with animation */}
+                <motion.div
+                  animate={{
+                    x: [0, 10, 0],
+                    rotate: [0, 5, 0]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="relative z-10"
+                >
+                  <FaPlane className="text-xl" />
+                </motion.div>
+                
+                <span className="relative z-10 whitespace-nowrap">
+                  לרכישת ביטוח נסיעות לחו״ל בקליק
+                </span>
+                
+                {/* Sparkle effect */}
+                <motion.div
+                  className="absolute top-2 right-4 w-2 h-2 bg-white rounded-full opacity-0"
+                  animate={{
+                    opacity: [0, 1, 0],
+                    scale: [0, 1, 0]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: 0.5
+                  }}
+                />
+                <motion.div
+                  className="absolute bottom-2 left-6 w-1.5 h-1.5 bg-white rounded-full opacity-0"
+                  animate={{
+                    opacity: [0, 1, 0],
+                    scale: [0, 1, 0]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: 1
+                  }}
+                />
+              </motion.button>
+            </motion.div>
+
             {/* Stats Banners Container - Isolated */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex justify-center items-center gap-2 sm:gap-6 mb-32 w-[70%] sm:w-full mx-auto"
+              className="flex justify-center items-center gap-2 sm:gap-6 mb-32 lg:mb-40 w-[70%] sm:w-full mx-auto"
             >
               {stats.map((stat, index) => (
                 <motion.div
