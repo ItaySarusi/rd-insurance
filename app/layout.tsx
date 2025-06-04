@@ -66,9 +66,9 @@ export const metadata: Metadata = {
     siteName: 'רוני דניאל - סוכן ביטוח',
     images: [
       {
-        url: '/images/RD-logo.png',
-        width: 1024,
-        height: 1024,
+        url: '/images/og-image.png',
+        width: 1200,
+        height: 630,
         alt: 'רוני דניאל - סוכן ביטוח פנסיוני ואלמנטרי',
       },
     ],
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'רוני דניאל - סוכן ביטוח פנסיוני ואלמנטרי',
     description: 'סוכן ביטוח מקצועי עם 40+ שנות ניסיון. ייעוץ חינם ושירות אישי ביקנעם עילית.',
-    images: ['/images/RD-logo.png'],
+    images: ['/images/og-image.png'],
   },
   alternates: {
     canonical: 'https://rd-insurance.vercel.app',
@@ -155,8 +155,8 @@ export default function RootLayout({
         
         {/* Additional Open Graph tags for better social media sharing */}
         <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="1024" />
-        <meta property="og:image:height" content="1024" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="רוני דניאל - סוכן ביטוח פנסיוני ואלמנטרי" />
         
         <script

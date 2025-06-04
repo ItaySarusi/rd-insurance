@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create OG Image</title>
+    <style>
+        body {
+            font-family: 'Heebo', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #87CEEB 0%, #4A90E2 100%);
+        }
+        .og-container {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #87CEEB 0%, #4A90E2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: 20px auto;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .content {
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .logo-text {
+            font-size: 72px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .description {
+            font-size: 24px;
+            font-weight: 400;
+        }
+        .instructions {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <h2>הוראות ליצירת תמונת Open Graph</h2>
+        <ol>
+            <li>לחץ F12 לפתיחת Developer Tools</li>
+            <li>לחץ Ctrl+Shift+P (או Cmd+Shift+P במק)</li>
+            <li>הקלד "Screenshot" ובחר "Capture node screenshot"</li>
+            <li>לחץ על הקונטיינר הכחול למטה</li>
+            <li>שמור את התמונה בשם "og-image.png" בתיקיה public/images/</li>
+        </ol>
+        <p><strong>או:</strong> פשוט צלם מסך של הקונטיינר הכחול ועבד עליו בעורך תמונות</p>
+    </div>
+
+    <div class="og-container" id="og-image">
+        <div class="content">
+            <div class="logo-text">רוני דניאל</div>
+            <div class="subtitle">סוכן ביטוח פנסיוני ואלמנטרי</div>
+            <div class="description">יקנעם עילית | 40+ שנות ניסיון</div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-download functionality
+        function downloadImage() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 1200;
+            canvas.height = 630;
+            
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#87CEEB');
+            gradient.addColorStop(1, '#4A90E2');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.shadowColor = 'rgba(0,0,0,0.3)';
+            ctx.shadowBlur = 4;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+            
+            ctx.font = 'bold 72px Arial';
+            ctx.fillText('רוני דניאל', canvas.width/2, 250);
+            
+            ctx.font = '600 32px Arial';
+            ctx.fillText('סוכן ביטוח פנסיוני ואלמנטרי', canvas.width/2, 320);
+            
+            ctx.font = '400 24px Arial';
+            ctx.fillText('יקנעם עילית | 40+ שנות ניסיון', canvas.width/2, 380);
+            
+            // Download
+            const link = document.createElement('a');
+            link.download = 'og-image.png';
+            link.href = canvas.toDataURL('image/png', 0.8);
+            link.click();
+        }
+        
+        // Add download button
+        const button = document.createElement('button');
+        button.textContent = 'הורד תמונת OG מותאמת';
+        button.style.cssText = 'padding: 15px 30px; font-size: 18px; background: #4A90E2; color: white; border: none; border-radius: 8px; cursor: pointer; margin: 20px auto; display: block;';
+        button.onclick = downloadImage;
+        document.body.appendChild(button);
+    </script>
+</body>
+</html> 
