@@ -10,6 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://rd-insurance.vercel.app'),
   title: "רוני דניאל - סוכן ביטוח פנסיוני ואלמנטרי | יקנעם עילית",
   description: "רוני דניאל - סוכן ביטוח מקצועי עם למעלה מ-40 שנות ניסיון ביקנעם עילית. מתמחה בביטוח פנסיוני, ביטוח אלמנטרי, ביטוח רכב, ביטוח בריאות ועוד. ייעוץ מקצועי וחינם.",
   keywords: [
@@ -66,8 +67,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/images/RD-logo.png',
-        width: 1200,
-        height: 630,
+        width: 1024,
+        height: 1024,
         alt: 'רוני דניאל - סוכן ביטוח פנסיוני ואלמנטרי',
       },
     ],
@@ -151,6 +152,13 @@ export default function RootLayout({
         <meta name="geo.position" content="32.6906;35.1087" />
         <meta name="ICBM" content="32.6906, 35.1087" />
         <meta name="google-site-verification" content="sxuh9WDfRh8PJ2gV_HUBbDqyUakBF0sjZxlA1wJcVV0" />
+        
+        {/* Additional Open Graph tags for better social media sharing */}
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1024" />
+        <meta property="og:image:height" content="1024" />
+        <meta property="og:image:alt" content="רוני דניאל - סוכן ביטוח פנסיוני ואלמנטרי" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
