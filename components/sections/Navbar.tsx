@@ -45,6 +45,25 @@ const Navbar = () => {
           : 'bg-transparent'
       }`}
     >
+      {/* Desktop Login Button - Positioned at far right edge */}
+      <motion.button
+        initial={{ y: "-50%" }}
+        animate={{ y: "-50%" }}
+        whileHover={{ scale: 1.05, y: "-50%" }}
+        whileTap={{ scale: 0.95, y: "-50%" }}
+        onClick={() => window.open('https://cs.bafi.co.il/login/client/4ee6ae41-8c14-4dd3-824d-2b5e2a42f957?outside_login=1&win_open_type=blank', '_blank')}
+        className="hidden lg:flex absolute right-4 bg-gradient-to-r from-blue-400 to-blue-600 text-gray-900 px-4 py-2.5 rounded-lg font-medium hover:from-blue-300 hover:to-blue-500 transition-all duration-300 shadow-md items-center gap-2 z-60"
+        style={{ top: "calc(50% + 1rem)", translateY: "-50%" }}
+        title="התחברות ללקוחות קיימים"
+      >
+        <img 
+          src="/icons/client-login-icon.svg" 
+          alt="התחברות ללקוחות קיימים" 
+          className="w-5 h-5"
+        />
+        <span className="text-sm font-semibold whitespace-nowrap">התחברות ללקוחות קיימים</span>
+      </motion.button>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20 w-full">
           {/* Logo */}
@@ -93,7 +112,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Right Side - Theme Toggle + CTA Button */}
+          {/* Right Side - Theme Toggle + CTA Button (Login button removed) */}
           <div className="hidden lg:flex items-center gap-4">
             {/* Theme Toggle Button */}
             <motion.button
@@ -121,18 +140,36 @@ const Navbar = () => {
             </motion.button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg glassmorphism-card"
-          >
-            {isMobileMenuOpen ? (
-              <FaTimes className="text-xl text-blue-400" />
-            ) : (
-              <FaBars className="text-xl text-blue-400" />
-            )}
-          </motion.button>
+          {/* Mobile Right Side - Login Button + Menu Button */}
+          <div className="lg:hidden flex items-center gap-4">
+            {/* Mobile Client Login Button */}
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.open('https://cs.bafi.co.il/login/client/4ee6ae41-8c14-4dd3-824d-2b5e2a42f957?outside_login=1&win_open_type=blank', '_blank')}
+              className="bg-gradient-to-r from-blue-400 to-blue-600 text-gray-900 px-3 py-2 rounded-lg font-medium hover:from-blue-300 hover:to-blue-500 transition-all duration-300 shadow-md flex items-center gap-2"
+              title="התחברות ללקוחות קיימים"
+            >
+              <img 
+                src="/icons/client-login-icon.svg" 
+                alt="התחברות ללקוחות קיימים" 
+                className="w-4 h-4"
+              />
+              <span className="text-xs font-semibold">התחברות</span>
+            </motion.button>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 rounded-lg glassmorphism-card"
+            >
+              {isMobileMenuOpen ? (
+                <FaTimes className="text-xl text-blue-400" />
+              ) : (
+                <FaBars className="text-xl text-blue-400" />
+              )}
+            </motion.button>
+          </div>
         </div>
       </div>
 
