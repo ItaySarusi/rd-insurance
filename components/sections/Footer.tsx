@@ -183,15 +183,24 @@ const Footer = () => {
 
               {/* Legal Links */}
               <div className="flex gap-6 text-sm">
-                <button className="text-gray-400 hover:text-blue-400 transition-colors">
+                <a 
+                  href="/terms" 
+                  className="text-gray-400 hover:text-blue-400 transition-colors"
+                >
                   תנאי שימוש
-                </button>
-                <button className="text-gray-400 hover:text-blue-400 transition-colors">
+                </a>
+                <a 
+                  href="/privacy-policy" 
+                  className="text-gray-400 hover:text-blue-400 transition-colors"
+                >
                   מדיניות פרטיות
-                </button>
-                <button className="text-gray-400 hover:text-blue-400 transition-colors">
+                </a>
+                <a 
+                  href="/accessibility" 
+                  className="text-gray-400 hover:text-blue-400 transition-colors"
+                >
                   הצהרת נגישות
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>
