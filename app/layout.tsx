@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from '@/components/ThemeProvider'
+import Navbar from '@/components/sections/Navbar';
+import Footer from '@/components/sections/Footer';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -169,8 +171,18 @@ export default function RootLayout({
       <body
         className={`${inter.variable} antialiased font-heebo`}
       >
+        <div className="sr-only">
+          סוכן ביטוח יקנעם, סוכן ביטוח ביקנעם, סוכן ביטוח יקנעם עילית, סוכן ביטוח ביקנעם עילית, 
+          סוכן ביטוח פנסיוני יקנעם, סוכן ביטוח פנסיוני ביקנעם, סוכן ביטוח אלמנטרי יקנעם, 
+          סוכן ביטוח אלמנטרי ביקנעם, ביטוח חיים יקנעם, ביטוח בריאות יקנעם, ביטוח רכב יקנעם, 
+          ביטוח דירה יקנעם, ייעוץ פנסיוני יקנעם, ייעוץ פנסיוני ביקנעם, ביטוח עסקי יקנעם, 
+          ביטוח עסקי ביקנעם, סוכן ביטוח מקצועי יקנעם, סוכן ביטוח מקצועי ביקנעם, 
+          רוני דניאל סוכן ביטוח יקנעם, רוני דניאל סוכן ביטוח ביקנעם
+        </div>
         <ThemeProvider>
-          {children}
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
         </ThemeProvider>
         <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
       </body>
