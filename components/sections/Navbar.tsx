@@ -181,7 +181,7 @@ const Navbar = () => {
           height: isMobileMenuOpen ? 'auto' : 0,
         }}
         transition={{ duration: 0.3 }}
-        className="lg:hidden overflow-hidden glassmorphism backdrop-blur-md"
+        className="lg:hidden overflow-hidden mobile-menu-bg"
       >
         <div className="px-4 py-6 flex flex-col gap-4">
           {navItems.map((item, index) => (

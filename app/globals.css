@@ -124,6 +124,15 @@ body {
   transition: all 0.3s ease;
 }
 
+/* Mobile Menu Background - Darker and less translucent */
+.mobile-menu-bg {
+  background: rgba(10, 10, 11, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(96, 165, 250, 0.3);
+  transition: all 0.3s ease;
+}
+
 .glassmorphism-card {
   background: rgba(96, 165, 250, 0.1);
   backdrop-filter: blur(15px);
