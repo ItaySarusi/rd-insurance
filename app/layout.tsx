@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from '@/components/ThemeProvider'
 import Navbar from '@/components/sections/Navbar';
 import Footer from '@/components/sections/Footer';
+import WhatsappButton from '@/components/WhatsappButton';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -183,6 +184,7 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <WhatsappButton />
         </ThemeProvider>
         <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
       </body>
