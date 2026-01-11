@@ -16,7 +16,7 @@ const TermsOfUse = () => {
         >
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4 gradient-text">תנאי שימוש</h1>
+            <h1 className="text-4xl font-bold mb-4 gradient-text">תקנון אתר</h1>
             <p className="text-gray-300 text-lg">
               כללים והנחיות לשימוש באתר
             </p>
@@ -81,7 +81,7 @@ const TermsOfUse = () => {
               <div className="bg-gray-800/30 p-6 rounded-lg border border-blue-400/20">
                 <h2 className="text-2xl font-semibold mb-4">דין שולט</h2>
                 <p className="text-gray-300 mb-4">
-                  תנאי שימוש אלו כפופים לדיני מדינת ישראל בלבד. כל מחלוקת בקשר לתנאים אלו תהיה בסמכותו הבלעדית של בית המשפט המוסמך.
+                  תקנון אתר זה כפוף לדיני מדינת ישראל בלבד. כל מחלוקת בקשר לתנאים אלו תהיה בסמכותו הבלעדית של בית המשפט המוסמך.
                 </p>
               </div>
 

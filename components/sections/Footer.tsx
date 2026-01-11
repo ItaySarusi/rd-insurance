@@ -187,7 +187,7 @@ const Footer = () => {
                   href="/terms" 
                   className="text-gray-400 hover:text-blue-400 transition-colors"
                 >
-                  תנאי שימוש
+                  תקנון אתר
                 </a>
                 <a 
                   href="/privacy-policy" 
