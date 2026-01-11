@@ -186,7 +186,9 @@ export default function RootLayout({
           <Footer />
           <WhatsappButton />
         </ThemeProvider>
-        <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>      </body>
+        {/* Accessibility Widget */}
+        <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js" defer></script>
+      </body>
     </html>
   );
 }
